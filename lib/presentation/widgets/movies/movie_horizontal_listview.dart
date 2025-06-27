@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:cinemapedia/config/helpers/human_formats.dart';
 import 'package:cinemapedia/domain/entities/movie.dart';
 import 'package:cinemapedia/presentation/widgets/widgets.dart';
+import 'package:go_router/go_router.dart';
 
 // Widget -> por eso es widget.title
 class MovieHorizontalListview extends StatefulWidget {
@@ -113,8 +114,10 @@ class _Slide extends StatelessWidget {
                                     CircularProgressIndicator(strokeWidth: 2)),
                           );
                         }
-
-                        return FadeIn(child: child);
+                        return GestureDetector(
+                            onTap: () => context.push('/movie/${movie.id}'),
+                            child: child);
+                        // return FadeIn(child: child);
                       },
                     ))),
             const SizedBox(height: 5),
