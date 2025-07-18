@@ -156,7 +156,7 @@ class BelongsToCollection {
       BelongsToCollection(
         id: json["id"],
         name: json["name"],
-        posterPath: json["poster_path"],
+        posterPath: json["poster_path"] ?? '',
         backdropPath: json["backdrop_path"],
       );
 
@@ -190,7 +190,7 @@ class Genre {
 
 class ProductionCompany {
   final int id;
-  final String logoPath;
+  final String? logoPath; //Puede ser null porque no se está utilizando.
   final String name;
   final String originCountry;
 
@@ -204,7 +204,7 @@ class ProductionCompany {
   factory ProductionCompany.fromJson(Map<String, dynamic> json) =>
       ProductionCompany(
         id: json["id"],
-        logoPath: json["logo_path"],
+        logoPath: json["logo_path"] ?? '',
         name: json["name"],
         originCountry: json["origin_country"],
       );
